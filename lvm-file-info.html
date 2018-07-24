@@ -1,0 +1,66 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="lvm-file-info">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello !</h2>
+		<div>
+		<div>
+		File Path:	[[filepath]]
+		</div>
+		<div>
+		Date:	[[date]]
+		</div>
+		<div>
+		Operator:	[[operator]]
+		</div>
+		<div>
+		Channels Number:	[[chanum]]
+		</div>
+		</div>
+  </template>
+
+  <script>
+    /**
+     * `lvm-file-info`
+     * Shows the information of a .LVM file.
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+		 var d = new Date(2018, 06, 24);
+    class LvmFileInfo extends Polymer.Element {
+      static get is() { return 'lvm-file-info'; }
+      static get properties() {
+        return {
+          filepath: {
+            type: String,
+            value: 'fakepath'
+          },
+					date: {
+            type: Date,
+            value: d
+          },
+					operator: {
+            type: String,
+            value: 'flying-cow'
+          },
+					chanum: {
+            type: Number,
+            value: -2
+          },
+        };
+      }
+			constructor() {
+      super();
+			}
+    }
+
+    window.customElements.define(LvmFileInfo.is, LvmFileInfo);
+  </script>
+</dom-module>
