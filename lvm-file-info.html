@@ -1,28 +1,44 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/myicons.html">
+<link rel="import" href="../icon-toggle/icon-toggle.html">
 
 <dom-module id="lvm-file-info">
   <template>
+    
     <style>
       :host {
         display: block;
+        --icon-toggle-color: black;
+        --icon-toggle-outline-color: white;
+        --icon-toggle-pressed-color: blue;
       }
     </style>
-    <h2>Hello !</h2>
+
 		<div>
-		<div>
-		File Path:	[[filepath]]
-		</div>
-		<div>
-		Date:	[[date]]
-		</div>
-		<div>
-		Operator:	[[operator]]
-		</div>
-		<div>
-		Channels Number:	[[chanum]]
-		</div>
-		</div>
+  		<div>
+    		File Path:	[[filepath]]
+  		</div>
+  		<div>
+  	 	 Date:	[[date]]
+  		</div>
+  		<div>
+  	 	 Operator:	[[operator]]
+  		</div>
+  		<div>
+  		  Channels Number:	[[chanum]]
+  		</div>
+      <div>
+        <icon-toggle toggle-icon="myicons:photo-library"></icon-toggle>
+        <!--iron-icon icon="myicons:photo-library" on-click="toggle"></iron-icon-->
+      </div>
+    </div>
+
   </template>
+
+
+
 
   <script>
     /**
@@ -33,26 +49,25 @@
      * @polymer
      * @demo demo/index.html
      */
-		 var d = new Date(2018, 06, 24);
     class LvmFileInfo extends Polymer.Element {
       static get is() { return 'lvm-file-info'; }
       static get properties() {
         return {
           filepath: {
             type: String,
-            value: 'fakepath'
+            value: 'default'
           },
 					date: {
             type: Date,
-            value: d
+            value: 'default'
           },
 					operator: {
             type: String,
-            value: 'flying-cow'
+            value: 'default'
           },
 					chanum: {
             type: Number,
-            value: -2
+            value: 'default'
           },
         };
       }

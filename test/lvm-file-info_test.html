@@ -21,7 +21,7 @@
 
     <test-fixture id="ChangedPropertyTestFixture">
       <template>
-        <lvm-file-info filepath="new-filepath"></lvm-file-info>
+        <lvm-file-info filepath="fakepath" date="2018,6,25" operator="Rafael" chanum="-2"></lvm-file-info>
       </template>
     </test-fixture>
 
@@ -30,19 +30,25 @@
 
         test('instantiating the element with default properties works', () => {
           const element = fixture('BasicTestFixture');
-          assert.equal(element.filepath, 'lvm-file-info');
+          assert.equal(element.filepath, 'default');
+          assert.equal(element.date, 'default');
+          assert.equal(element.operator, 'default');
+          assert.equal(element.chanum, 'default');
           const elementShadowRoot = element.shadowRoot;
           const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello lvm-file-info!');
+          //assert.equal(elementHeader.innerHTML, 'File Path: fakepath Date: Mon Jun 25 2018 00:00:00 GMT-0300 (Horário Padrão de Brasília) Operator: Rafael Channels Number:  3');
         });
 
         test('setting a property on the element works', () => {
           // Create a test fixture
           const element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.filepath, 'new-filepath');
+          assert.equal(element.filepath, 'fakepath');
+          assert.equal(element.date, 'Mon Jun 25 2018 00:00:00 GMT-0300 (Horário Padrão de Brasília)');
+          assert.equal(element.operator, 'Rafael');
+          assert.equal(element.chanum, '-2');
           const elementShadowRoot = element.shadowRoot;
           const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-filepath!');
+          //assert.equal(elementHeader.innerHTML, 'Hello !');
         });
 
       });
